@@ -1,0 +1,1176 @@
+// converted by version 1.3
+// on Sat Jul 03 05:01:46 CST 2021
+
+.package com/quan/datn {
+	.aid 0x11:0x22:0x33:0x44:0x55;
+	.version 1.0;
+
+	.imports {
+		0xA0:0x0:0x0:0x0:0x62:0x1:0x1 1.2;		//javacard/framework
+		0xA0:0x0:0x0:0x0:0x62:0x1:0x2 1.2;		//javacard/security
+		0xA0:0x0:0x0:0x0:0x62:0x2:0x1 1.2;		//javacardx/crypto
+	}
+
+	.applet {
+		0x11:0x22:0x33:0x44:0x55:0x1:0x1 Main;
+	}
+
+	.constantPool {
+		// 0
+		instanceFieldRef 0.9 Main/pin;
+		// 1
+		instanceFieldRef short Main/sigLen;
+		// 2
+		instanceFieldRef 1.15 Main/rsaSign;
+		// 3
+		instanceFieldRef 1.9 Main/rsaPubKey;
+		// 4
+		instanceFieldRef 1.20 Main/aesKey;
+		// 5
+		instanceFieldRef 2.1 Main/aesCipher;
+		// 6
+		staticMethodRef 0.9.0(BB)V;		// javacard/framework/OwnerPIN.<init>(BB)V
+		// 7
+		staticMethodRef Main/<init>([BSB)V;
+		// 8
+		staticFieldRef byte[] Main/pinCard;
+		// 9
+		virtualMethodRef 0.9.8([BSB)V;		// javacard/framework/OwnerPIN.update([BSB)V
+		// 10
+		staticFieldRef byte[] Main/infomation;
+		// 11
+		staticFieldRef byte[] Main/balance;
+		// 12
+		classRef Main;
+		// 13
+		staticMethodRef 1.15.0(BZ)Ljavacard/security/Signature;;		// javacard/security/Signature.getInstance(BZ)Ljavacard/security/Signature;
+			.descriptor	Ljavacard/security/Signature;	1.15;
+
+		// 14
+		staticMethodRef 0.3.0()V;		// javacard/framework/Applet.<init>()V
+		// 15
+		classRef 1.16;		// javacard/security/KeyPair
+		// 16
+		staticMethodRef 1.16.0(BS)V;		// javacard/security/KeyPair.<init>(BS)V
+		// 17
+		virtualMethodRef 1.16.1()V;		// javacard/security/KeyPair.genKeyPair()V
+		// 18
+		virtualMethodRef 1.16.2()Ljavacard/security/PrivateKey;;		// javacard/security/KeyPair.getPrivate()Ljavacard/security/PrivateKey;
+			.descriptor	Ljavacard/security/PrivateKey;	1.2;
+
+		// 19
+		classRef 1.8;		// javacard/security/RSAPrivateKey
+		// 20
+		virtualMethodRef 1.16.3()Ljavacard/security/PublicKey;;		// javacard/security/KeyPair.getPublic()Ljavacard/security/PublicKey;
+			.descriptor	Ljavacard/security/PublicKey;	1.3;
+
+		// 21
+		classRef 1.9;		// javacard/security/RSAPublicKey
+		// 22
+		virtualMethodRef 0.3.1()V;		// javacard/framework/Applet.register()V
+		// 23
+		staticMethodRef 1.13.0(BSZ)Ljavacard/security/Key;;		// javacard/security/KeyBuilder.buildKey(BSZ)Ljavacard/security/Key;
+			.descriptor	Ljavacard/security/Key;	1.0;
+
+		// 24
+		classRef 1.20;		// javacard/security/AESKey
+		// 25
+		virtualMethodRef 0.3.2([BSB)V;		// javacard/framework/Applet.register([BSB)V
+		// 26
+		staticMethodRef 2.1.0(BZ)Ljavacardx/crypto/Cipher;;		// javacardx/crypto/Cipher.getInstance(BZ)Ljavacardx/crypto/Cipher;
+			.descriptor	Ljavacardx/crypto/Cipher;	2.1;
+
+		// 27
+		classRef 0.9;		// javacard/framework/OwnerPIN
+		// 28
+		staticMethodRef Main/encryptPrivateKey(Ljavacard/security/RSAPrivateKey;[B)V;
+			.descriptor	Ljavacard/security/RSAPrivateKey;	1.8;
+
+		// 29
+		virtualMethodRef 0.3.3()Z;		// javacard/framework/Applet.selectingApplet()Z
+		// 30
+		virtualMethodRef 0.10.1()[B;		// javacard/framework/APDU.getBuffer()[B
+		// 31
+		staticMethodRef Main/insertInfo(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+		// 32
+		staticMethodRef Main/readInfo(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+		// 33
+		virtualMethodRef 0.9.6()V;		// javacard/framework/OwnerPIN.resetAndUnblock()V
+		// 34
+		staticMethodRef Main/verify(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+		// 35
+		staticMethodRef Main/changePin(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+		// 36
+		staticMethodRef Main/credit(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+		// 37
+		staticMethodRef Main/debit(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+		// 38
+		staticMethodRef Main/getBalance(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+		// 39
+		staticMethodRef Main/initRSASign(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+		// 40
+		staticMethodRef Main/getPublicKeyExp(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+		// 41
+		staticMethodRef Main/getPublicKeyMod(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+		// 42
+		staticMethodRef 0.7.1(S)V;		// javacard/framework/ISOException.throwIt(S)V
+		// 43
+		staticFieldRef byte[] Main/temp;
+		// 44
+		virtualMethodRef 0.10.6()S;		// javacard/framework/APDU.setIncomingAndReceive()S
+		// 45
+		staticMethodRef 0.16.1([BS[BSS)S;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+		// 46
+		virtualMethodRef 0.10.3(S)S;		// javacard/framework/APDU.receiveBytes(S)S
+		// 47
+		staticFieldRef short Main/lengthInfo;
+		// 48
+		virtualMethodRef 0.10.8(SS)V;		// javacard/framework/APDU.setOutgoingAndSend(SS)V
+		// 49
+		virtualMethodRef 0.9.4()Z;		// javacard/framework/OwnerPIN.isValidated()Z
+		// 50
+		staticMethodRef Main/byteArrayToShort([B)I;
+		// 51
+		staticMethodRef Main/shortToByteArray(I)[B;
+		// 52
+		virtualMethodRef 0.9.1([BSB)Z;		// javacard/framework/OwnerPIN.check([BSB)Z
+		// 53
+		staticMethodRef Main/decryptPrivateKey([B)Ljavacard/security/RSAPrivateKey;;
+			.descriptor	Ljavacard/security/RSAPrivateKey;	1.8;
+
+		// 54
+		virtualMethodRef 1.15.3(Ljavacard/security/Key;B)V;		// javacard/security/Signature.init(Ljavacard/security/Key;B)V
+			.descriptor	Ljavacard/security/Key;	1.0;
+
+		// 55
+		staticFieldRef byte[] Main/sig_buffer;
+		// 56
+		virtualMethodRef 1.15.5([BSS[BS)S;		// javacard/security/Signature.sign([BSS[BS)S
+		// 57
+		virtualMethodRef 0.9.5()V;		// javacard/framework/OwnerPIN.reset()V
+		// 58
+		staticMethodRef Main/generatorKey([B)[B;
+		// 59
+		virtualMethodRef 2.1.3(Ljavacard/security/Key;B)V;		// javacardx/crypto/Cipher.init(Ljavacard/security/Key;B)V
+			.descriptor	Ljavacard/security/Key;	1.0;
+
+		// 60
+		staticFieldRef byte[] Main/privateKeyModule;
+		// 61
+		virtualMethodRef 2.1.1([BSS[BS)S;		// javacardx/crypto/Cipher.doFinal([BSS[BS)S
+		// 62
+		staticFieldRef byte[] Main/privateKeyExp;
+	}
+
+	.class public Main 0 extends 0.3 {		// extends javacard/framework/Applet
+
+		.fields {
+			 0.9 pin 0;		// Ljavacard/framework/OwnerPIN;
+			private 1.9 rsaPubKey 1;		// Ljavacard/security/RSAPublicKey;
+			private 1.15 rsaSign 2;		// Ljavacard/security/Signature;
+			private 2.1 aesCipher 3;		// Ljavacardx/crypto/Cipher;
+			private 1.20 aesKey 4;		// Ljavacard/security/AESKey;
+			private short sigLen 5;		// S
+			static final byte INS_INSERT_INFO = 0;		// B
+			static final byte INS_READ_INFO = 1;		// B
+			static final byte INS_CREDIT = 2;		// B
+			static final byte INS_DEBIT = 3;		// B
+			static final byte INS_GET_BALANCE = 4;		// B
+			static final byte INS_VERYFY = 5;		// B
+			static final byte INS_UNBLOCK_CARD = 6;		// B
+			static final byte INS_CHANGE_PIN = 7;		// B
+			static final byte INS_SIGN = 8;		// B
+			static final byte INS_READ_PUBLICKEY_EXP = 9;		// B
+			static final byte INS_READ_PUBLICKEY_MOD = 16;		// B
+			static final byte PIN_TRY_LIMIT = 3;		// B
+			static final byte MAX_PIN_SIZE = 8;		// B
+			static final short SW_VERIFICATION_FAILED = 25362;		// S
+			static final short SW_PIN_VERIFICATION_REQUIRED = 25361;		// S
+			static final short SW_INVALID_TRANSACTION_AMOUNT = 27267;		// S
+			static final short SW_NEGATIVE_BALANCE = 27269;		// S
+			private static byte[] temp;		// [B
+			private static byte[] infomation;		// [B
+			private static byte[] pinCard;		// [B
+			private static byte[] balance;		// [B
+			private static short lengthInfo;		// S
+			private static byte[] sig_buffer;		// [B
+			private static byte[] privateKeyModule;		// [B
+			private static byte[] privateKeyExp;		// [B
+		}
+
+		.publicMethodTable 4 {
+			equals(Ljava/lang/Object;)Z;
+			register()V;
+			register([BSB)V;
+			selectingApplet()Z;
+			deselect()V;
+			getShareableInterfaceObject(Ljavacard/framework/AID;B)Ljavacard/framework/Shareable;;
+			select()Z;
+			process(Ljavacard/framework/APDU;)V;
+		}
+
+		.packageMethodTable 0 {
+		}
+
+		.method private static final byteArrayToShort([B)I {
+			.stack 6;
+			.locals 0;
+
+				L0:	aload_0;
+					sconst_0;
+					baload;
+					s2i;
+					bipush 24;
+					ishl;
+					aload_0;
+					sconst_1;
+					baload;
+					s2i;
+					bipush 24;
+					ishl;
+					bipush 8;
+					iushr;
+					ior;
+					aload_0;
+					sconst_2;
+					baload;
+					s2i;
+					bipush 24;
+					ishl;
+					bipush 16;
+					iushr;
+					ior;
+					aload_0;
+					sconst_3;
+					baload;
+					s2i;
+					bipush 24;
+					ishl;
+					bipush 24;
+					iushr;
+					ior;
+					ireturn;
+		}
+
+		.method private static final shortToByteArray(I)[B {
+			.stack 7;
+			.locals 0;
+
+				L0:	sconst_4;
+					newarray 11;
+					dup;
+					sconst_0;
+					iload_0;
+					bipush 24;
+					iushr;
+					i2b;
+					bastore;
+					dup;
+					sconst_1;
+					iload_0;
+					bipush 16;
+					iushr;
+					i2b;
+					bastore;
+					dup;
+					sconst_2;
+					iload_0;
+					bipush 8;
+					iushr;
+					i2b;
+					bastore;
+					dup;
+					sconst_3;
+					iload_0;
+					i2b;
+					bastore;
+					areturn;
+		}
+
+		.method public static install([BSB)V 0 {
+			.stack 5;
+			.locals 0;
+
+				L0:	new 12;		// com/quan/datn/Main
+					dup;
+					aload_0;
+					sload_1;
+					sload_2;
+					invokespecial 7;		// com/quan/datn/Main.<init>([BSB)V
+					pop;
+					return;
+		}
+
+		.method protected <init>([BSB)V 1 {
+			.stack 5;
+			.locals 3;
+
+				L0:	aload_0;
+					invokespecial 14;		// javacard/framework/Applet.<init>()V
+					aload_1;
+					sload_2;
+					baload;
+					sstore 4;
+				L1:	sload 4;
+					ifne L3;
+				L2:	aload_0;
+					invokevirtual 22;		// javacard/framework/Applet.register()V
+					goto L4;
+				L3:	aload_0;
+					aload_1;
+					sload_2;
+					sconst_1;
+					sadd;
+					sload 4;
+					invokevirtual 25;		// javacard/framework/Applet.register([BSB)V
+				L4:	aload_0;
+					new 27;		// javacard/framework/OwnerPIN
+					dup;
+					sconst_3;
+					bspush 8;
+					invokespecial 6;		// javacard/framework/OwnerPIN.<init>(BB)V
+					putfield_a 0;		// reference com/quan/datn/Main.pin
+					sconst_4;
+					newarray 11;
+					dup;
+					sconst_0;
+					bspush 49;
+					bastore;
+					dup;
+					sconst_1;
+					bspush 50;
+					bastore;
+					dup;
+					sconst_2;
+					bspush 51;
+					bastore;
+					dup;
+					sconst_3;
+					bspush 52;
+					bastore;
+					putstatic_a 8;		// reference com/quan/datn/Main.pinCard
+					getfield_a_this 0;		// reference com/quan/datn/Main.pin
+					getstatic_a 8;		// reference com/quan/datn/Main.pinCard
+					sconst_0;
+					getstatic_a 8;		// reference com/quan/datn/Main.pinCard
+					arraylength;
+					s2b;
+					invokevirtual 9;		// javacard/framework/OwnerPIN.update([BSB)V
+					sspush 1000;
+					newarray 11;
+					putstatic_a 10;		// reference com/quan/datn/Main.infomation
+					sconst_4;
+					newarray 11;
+					dup;
+					sconst_0;
+					sconst_0;
+					bastore;
+					dup;
+					sconst_1;
+					sconst_0;
+					bastore;
+					dup;
+					sconst_2;
+					sconst_0;
+					bastore;
+					dup;
+					sconst_3;
+					sconst_0;
+					bastore;
+					putstatic_a 11;		// reference com/quan/datn/Main.balance
+					aload_0;
+					sspush 128;
+					putfield_s 1;		// short com/quan/datn/Main.sigLen
+					aload_0;
+					bspush 10;
+					sconst_0;
+					invokestatic 13;		// javacard/security/Signature.getInstance(BZ)Ljavacard/security/Signature;
+					putfield_a 2;		// reference com/quan/datn/Main.rsaSign
+					new 15;		// javacard/security/KeyPair
+					dup;
+					sconst_1;
+					bspush 8;
+					getfield_s_this 1;		// short com/quan/datn/Main.sigLen
+					smul;
+					invokespecial 16;		// javacard/security/KeyPair.<init>(BS)V
+					astore 5;
+				L5:	aload 5;
+					invokevirtual 17;		// javacard/security/KeyPair.genKeyPair()V
+					aload 5;
+					invokevirtual 18;		// javacard/security/KeyPair.getPrivate()Ljavacard/security/PrivateKey;
+					checkcast 0 19;		// T_CLASSORINTERFACE javacard/security/RSAPrivateKey
+					astore 6;
+				L6:	aload_0;
+					aload 5;
+					invokevirtual 20;		// javacard/security/KeyPair.getPublic()Ljavacard/security/PublicKey;
+					checkcast 0 21;		// T_CLASSORINTERFACE javacard/security/RSAPublicKey
+					putfield_a 3;		// reference com/quan/datn/Main.rsaPubKey
+					aload_0;
+					bspush 15;
+					sspush 128;
+					sconst_0;
+					invokestatic 23;		// javacard/security/KeyBuilder.buildKey(BSZ)Ljavacard/security/Key;
+					checkcast 0 24;		// T_CLASSORINTERFACE javacard/security/AESKey
+					putfield_a 4;		// reference com/quan/datn/Main.aesKey
+					aload_0;
+					bspush 14;
+					sconst_0;
+					invokestatic 26;		// javacardx/crypto/Cipher.getInstance(BZ)Ljavacardx/crypto/Cipher;
+					putfield_a 5;		// reference com/quan/datn/Main.aesCipher
+					aload_0;
+					aload 6;
+					getstatic_a 8;		// reference com/quan/datn/Main.pinCard
+					invokespecial 28;		// com/quan/datn/Main.encryptPrivateKey(Ljavacard/security/RSAPrivateKey;[B)V
+					return;
+		}
+
+		.method public process(Ljavacard/framework/APDU;)V 7 {
+			.stack 2;
+			.locals 1;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	aload_0;
+					invokevirtual 29;		// javacard/framework/Applet.selectingApplet()Z
+					ifeq L2;
+				L1:	return;
+				L2:	aload_1;
+					invokevirtual 30;		// javacard/framework/APDU.getBuffer()[B
+					astore_2;
+				L3:	aload_2;
+					sconst_1;
+					baload;
+					stableswitch L15 0 16 L4 L5 L9 L10 L11 L7 L6 L8 L12 L13 L15 L15 L15 L15 L15 L15 L14;
+				L4:	aload_0;
+					aload_1;
+					invokespecial 31;		// com/quan/datn/Main.insertInfo(Ljavacard/framework/APDU;)V
+					goto L16;
+				L5:	aload_0;
+					aload_1;
+					invokespecial 32;		// com/quan/datn/Main.readInfo(Ljavacard/framework/APDU;)V
+					goto L16;
+				L6:	getfield_a_this 0;		// reference com/quan/datn/Main.pin
+					invokevirtual 33;		// javacard/framework/OwnerPIN.resetAndUnblock()V
+					goto L16;
+				L7:	aload_0;
+					aload_1;
+					invokespecial 34;		// com/quan/datn/Main.verify(Ljavacard/framework/APDU;)V
+					goto L16;
+				L8:	aload_0;
+					aload_1;
+					invokespecial 35;		// com/quan/datn/Main.changePin(Ljavacard/framework/APDU;)V
+					goto L16;
+				L9:	aload_0;
+					aload_1;
+					invokespecial 36;		// com/quan/datn/Main.credit(Ljavacard/framework/APDU;)V
+					goto L16;
+				L10:	aload_0;
+					aload_1;
+					invokespecial 37;		// com/quan/datn/Main.debit(Ljavacard/framework/APDU;)V
+					goto L16;
+				L11:	aload_0;
+					aload_1;
+					invokespecial 38;		// com/quan/datn/Main.getBalance(Ljavacard/framework/APDU;)V
+					goto L16;
+				L12:	aload_0;
+					aload_1;
+					invokespecial 39;		// com/quan/datn/Main.initRSASign(Ljavacard/framework/APDU;)V
+					goto L16;
+				L13:	aload_0;
+					aload_1;
+					invokespecial 40;		// com/quan/datn/Main.getPublicKeyExp(Ljavacard/framework/APDU;)V
+					goto L16;
+				L14:	aload_0;
+					aload_1;
+					invokespecial 41;		// com/quan/datn/Main.getPublicKeyMod(Ljavacard/framework/APDU;)V
+					goto L16;
+				L15:	sspush 27904;
+					invokestatic 42;		// javacard/framework/ISOException.throwIt(S)V
+				L16:	return;
+		}
+
+		.method private insertInfo(Ljavacard/framework/APDU;)V {
+			.stack 5;
+			.locals 5;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	aload_1;
+					invokevirtual 30;		// javacard/framework/APDU.getBuffer()[B
+					astore_2;
+				L1:	aload_2;
+					sconst_4;
+					baload;
+					sspush 255;
+					sand;
+					sstore_3;
+				L2:	sload_3;
+					newarray 11;
+					putstatic_a 43;		// reference com/quan/datn/Main.temp
+					aload_1;
+					invokevirtual 44;		// javacard/framework/APDU.setIncomingAndReceive()S
+					sstore 4;
+				L3:	sconst_0;
+					sstore 5;
+				L4:	sload_3;
+					ifle L6;
+				L5:	aload_2;
+					sconst_5;
+					getstatic_a 43;		// reference com/quan/datn/Main.temp
+					sload 5;
+					sload 4;
+					invokestatic 45;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					sload 5;
+					sload 4;
+					sadd;
+					sstore 5;
+					sload_3;
+					sload 4;
+					ssub;
+					sstore_3;
+					aload_1;
+					sconst_5;
+					invokevirtual 46;		// javacard/framework/APDU.receiveBytes(S)S
+					sstore 4;
+					goto L4;
+				L6:	getstatic_a 43;		// reference com/quan/datn/Main.temp
+					arraylength;
+					putstatic_s 47;		// short com/quan/datn/Main.lengthInfo
+					sconst_0;
+					sstore 6;
+				L7:	sload 6;
+					getstatic_s 47;		// short com/quan/datn/Main.lengthInfo
+					if_scmpge L9;
+				L8:	getstatic_a 10;		// reference com/quan/datn/Main.infomation
+					sload 6;
+					getstatic_a 43;		// reference com/quan/datn/Main.temp
+					sload 6;
+					baload;
+					bastore;
+					sinc 6 1;
+					goto L7;
+				L9:	return;
+		}
+
+		.method private readInfo(Ljavacard/framework/APDU;)V {
+			.stack 5;
+			.locals 1;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	aload_1;
+					invokevirtual 30;		// javacard/framework/APDU.getBuffer()[B
+					astore_2;
+				L1:	aload_1;
+					invokevirtual 44;		// javacard/framework/APDU.setIncomingAndReceive()S
+					pop;
+					getstatic_a 10;		// reference com/quan/datn/Main.infomation
+					sconst_0;
+					aload_2;
+					sconst_0;
+					getstatic_s 47;		// short com/quan/datn/Main.lengthInfo
+					invokestatic 45;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					aload_1;
+					sconst_0;
+					getstatic_s 47;		// short com/quan/datn/Main.lengthInfo
+					invokevirtual 48;		// javacard/framework/APDU.setOutgoingAndSend(SS)V
+					return;
+		}
+
+		.method private credit(Ljavacard/framework/APDU;)V {
+			.stack 5;
+			.locals 9;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	getfield_a_this 0;		// reference com/quan/datn/Main.pin
+					invokevirtual 49;		// javacard/framework/OwnerPIN.isValidated()Z
+					ifne L2;
+				L1:	sspush 25361;
+					invokestatic 42;		// javacard/framework/ISOException.throwIt(S)V
+				L2:	aload_1;
+					invokevirtual 30;		// javacard/framework/APDU.getBuffer()[B
+					astore_2;
+				L3:	aload_2;
+					sconst_4;
+					baload;
+					sstore_3;
+				L4:	aload_1;
+					invokevirtual 44;		// javacard/framework/APDU.setIncomingAndReceive()S
+					sspush 255;
+					sand;
+					s2b;
+					sstore 4;
+				L5:	sload 4;
+					sconst_4;
+					if_scmpeq L7;
+				L6:	sspush 26368;
+					invokestatic 42;		// javacard/framework/ISOException.throwIt(S)V
+				L7:	sconst_4;
+					newarray 11;
+					putstatic_a 43;		// reference com/quan/datn/Main.temp
+					aload_2;
+					sconst_5;
+					getstatic_a 43;		// reference com/quan/datn/Main.temp
+					sconst_0;
+					sload 4;
+					invokestatic 45;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					getstatic_a 43;		// reference com/quan/datn/Main.temp
+					invokestatic 50;		// com/quan/datn/Main.byteArrayToShort([B)I
+					istore 5;
+				L8:	getstatic_a 11;		// reference com/quan/datn/Main.balance
+					invokestatic 50;		// com/quan/datn/Main.byteArrayToShort([B)I
+					istore 7;
+				L9:	iload 5;
+					iconst_0;
+					icmp;
+					ifge L11;
+				L10:	sspush 27267;
+					invokestatic 42;		// javacard/framework/ISOException.throwIt(S)V
+				L11:	iload 7;
+					iload 5;
+					iadd;
+					istore 9;
+				L12:	iload 9;
+					invokestatic 51;		// com/quan/datn/Main.shortToByteArray(I)[B
+					putstatic_a 11;		// reference com/quan/datn/Main.balance
+					return;
+		}
+
+		.method private debit(Ljavacard/framework/APDU;)V {
+			.stack 5;
+			.locals 9;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	getfield_a_this 0;		// reference com/quan/datn/Main.pin
+					invokevirtual 49;		// javacard/framework/OwnerPIN.isValidated()Z
+					ifne L2;
+				L1:	sspush 25361;
+					invokestatic 42;		// javacard/framework/ISOException.throwIt(S)V
+				L2:	aload_1;
+					invokevirtual 30;		// javacard/framework/APDU.getBuffer()[B
+					astore_2;
+				L3:	aload_2;
+					sconst_4;
+					baload;
+					sstore_3;
+				L4:	aload_1;
+					invokevirtual 44;		// javacard/framework/APDU.setIncomingAndReceive()S
+					sspush 255;
+					sand;
+					s2b;
+					sstore 4;
+				L5:	sconst_4;
+					newarray 11;
+					putstatic_a 43;		// reference com/quan/datn/Main.temp
+					aload_2;
+					sconst_5;
+					getstatic_a 43;		// reference com/quan/datn/Main.temp
+					sconst_0;
+					sload 4;
+					invokestatic 45;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					getstatic_a 43;		// reference com/quan/datn/Main.temp
+					invokestatic 50;		// com/quan/datn/Main.byteArrayToShort([B)I
+					istore 5;
+				L6:	iload 5;
+					iconst_0;
+					icmp;
+					ifge L8;
+				L7:	sspush 27267;
+					invokestatic 42;		// javacard/framework/ISOException.throwIt(S)V
+				L8:	getstatic_a 11;		// reference com/quan/datn/Main.balance
+					invokestatic 50;		// com/quan/datn/Main.byteArrayToShort([B)I
+					istore 7;
+				L9:	iload 7;
+					iload 5;
+					isub;
+					iconst_0;
+					icmp;
+					ifge L11;
+				L10:	sspush 27269;
+					invokestatic 42;		// javacard/framework/ISOException.throwIt(S)V
+				L11:	iload 7;
+					iload 5;
+					isub;
+					istore 9;
+				L12:	iload 9;
+					invokestatic 51;		// com/quan/datn/Main.shortToByteArray(I)[B
+					putstatic_a 11;		// reference com/quan/datn/Main.balance
+					return;
+		}
+
+		.method private getBalance(Ljavacard/framework/APDU;)V {
+			.stack 5;
+			.locals 1;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	getfield_a_this 0;		// reference com/quan/datn/Main.pin
+					invokevirtual 49;		// javacard/framework/OwnerPIN.isValidated()Z
+					ifne L2;
+				L1:	sspush 25361;
+					invokestatic 42;		// javacard/framework/ISOException.throwIt(S)V
+				L2:	aload_1;
+					invokevirtual 30;		// javacard/framework/APDU.getBuffer()[B
+					astore_2;
+				L3:	aload_1;
+					invokevirtual 44;		// javacard/framework/APDU.setIncomingAndReceive()S
+					pop;
+					getstatic_a 11;		// reference com/quan/datn/Main.balance
+					sconst_0;
+					aload_2;
+					sconst_0;
+					sconst_4;
+					invokestatic 45;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					aload_1;
+					sconst_0;
+					sconst_4;
+					invokevirtual 48;		// javacard/framework/APDU.setOutgoingAndSend(SS)V
+					return;
+		}
+
+		.method private verify(Ljavacard/framework/APDU;)V {
+			.stack 4;
+			.locals 2;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	aload_1;
+					invokevirtual 30;		// javacard/framework/APDU.getBuffer()[B
+					astore_2;
+				L1:	aload_1;
+					invokevirtual 44;		// javacard/framework/APDU.setIncomingAndReceive()S
+					s2b;
+					sstore_3;
+				L2:	getfield_a_this 0;		// reference com/quan/datn/Main.pin
+					aload_2;
+					sconst_5;
+					sload_3;
+					invokevirtual 52;		// javacard/framework/OwnerPIN.check([BSB)Z
+					ifne L4;
+				L3:	sspush 25362;
+					invokestatic 42;		// javacard/framework/ISOException.throwIt(S)V
+				L4:	return;
+		}
+
+		.method private changePin(Ljavacard/framework/APDU;)V {
+			.stack 5;
+			.locals 4;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	aload_1;
+					invokevirtual 30;		// javacard/framework/APDU.getBuffer()[B
+					astore_2;
+				L1:	aload_1;
+					invokevirtual 44;		// javacard/framework/APDU.setIncomingAndReceive()S
+					sspush 255;
+					sand;
+					s2b;
+					sstore_3;
+				L2:	sload_3;
+					newarray 11;
+					putstatic_a 43;		// reference com/quan/datn/Main.temp
+					aload_2;
+					sconst_5;
+					getstatic_a 43;		// reference com/quan/datn/Main.temp
+					sconst_0;
+					sload_3;
+					invokestatic 45;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					getstatic_a 8;		// reference com/quan/datn/Main.pinCard
+					arraylength;
+					newarray 11;
+					astore 4;
+				L3:	sconst_0;
+					sstore 5;
+				L4:	sload 5;
+					aload 4;
+					arraylength;
+					if_scmpge L6;
+				L5:	aload 4;
+					sload 5;
+					getstatic_a 8;		// reference com/quan/datn/Main.pinCard
+					sload 5;
+					baload;
+					bastore;
+					sinc 5 1;
+					goto L4;
+				L6:	sconst_0;
+					sstore 5;
+				L7:	sload 5;
+					getstatic_a 43;		// reference com/quan/datn/Main.temp
+					arraylength;
+					if_scmpge L9;
+				L8:	getstatic_a 8;		// reference com/quan/datn/Main.pinCard
+					sload 5;
+					getstatic_a 43;		// reference com/quan/datn/Main.temp
+					sload 5;
+					baload;
+					bastore;
+					sinc 5 1;
+					goto L7;
+				L9:	getfield_a_this 0;		// reference com/quan/datn/Main.pin
+					getstatic_a 8;		// reference com/quan/datn/Main.pinCard
+					sconst_0;
+					getstatic_a 8;		// reference com/quan/datn/Main.pinCard
+					arraylength;
+					s2b;
+					invokevirtual 9;		// javacard/framework/OwnerPIN.update([BSB)V
+					aload_0;
+					aload 4;
+					invokespecial 53;		// com/quan/datn/Main.decryptPrivateKey([B)Ljavacard/security/RSAPrivateKey;
+					astore 5;
+				L10:	aload_0;
+					aload 5;
+					getstatic_a 8;		// reference com/quan/datn/Main.pinCard
+					invokespecial 28;		// com/quan/datn/Main.encryptPrivateKey(Ljavacard/security/RSAPrivateKey;[B)V
+					return;
+		}
+
+		.method private initRSASign(Ljavacard/framework/APDU;)V {
+			.stack 6;
+			.locals 6;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	getfield_a_this 0;		// reference com/quan/datn/Main.pin
+					invokevirtual 49;		// javacard/framework/OwnerPIN.isValidated()Z
+					ifne L2;
+				L1:	sspush 25361;
+					invokestatic 42;		// javacard/framework/ISOException.throwIt(S)V
+				L2:	aload_1;
+					invokevirtual 30;		// javacard/framework/APDU.getBuffer()[B
+					astore_2;
+				L3:	aload_2;
+					sconst_4;
+					baload;
+					sspush 255;
+					sand;
+					sstore_3;
+				L4:	sload_3;
+					newarray 11;
+					astore 4;
+				L5:	aload_1;
+					invokevirtual 44;		// javacard/framework/APDU.setIncomingAndReceive()S
+					sstore 5;
+				L6:	sconst_0;
+					sstore 6;
+				L7:	sload_3;
+					ifle L9;
+				L8:	aload_2;
+					sconst_5;
+					aload 4;
+					sload 6;
+					sload 5;
+					invokestatic 45;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					sload 6;
+					sload 5;
+					sadd;
+					sstore 6;
+					sload_3;
+					sload 5;
+					ssub;
+					sstore_3;
+					aload_1;
+					sconst_5;
+					invokevirtual 46;		// javacard/framework/APDU.receiveBytes(S)S
+					sstore 5;
+					goto L7;
+				L9:	aload_0;
+					getstatic_a 8;		// reference com/quan/datn/Main.pinCard
+					invokespecial 53;		// com/quan/datn/Main.decryptPrivateKey([B)Ljavacard/security/RSAPrivateKey;
+					astore 7;
+				L10:	getfield_a_this 2;		// reference com/quan/datn/Main.rsaSign
+					aload 7;
+					sconst_1;
+					invokevirtual 54;		// javacard/security/Signature.init(Ljavacard/security/Key;B)V
+					getfield_s_this 1;		// short com/quan/datn/Main.sigLen
+					newarray 11;
+					putstatic_a 55;		// reference com/quan/datn/Main.sig_buffer
+					getfield_a_this 2;		// reference com/quan/datn/Main.rsaSign
+					aload 4;
+					sconst_0;
+					aload 4;
+					arraylength;
+					getstatic_a 55;		// reference com/quan/datn/Main.sig_buffer
+					sconst_0;
+					invokevirtual 56;		// javacard/security/Signature.sign([BSS[BS)S
+					pop;
+					getstatic_a 55;		// reference com/quan/datn/Main.sig_buffer
+					sconst_0;
+					aload_2;
+					sconst_0;
+					getfield_s_this 1;		// short com/quan/datn/Main.sigLen
+					invokestatic 45;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					aload_1;
+					sconst_0;
+					getfield_s_this 1;		// short com/quan/datn/Main.sigLen
+					invokevirtual 48;		// javacard/framework/APDU.setOutgoingAndSend(SS)V
+					return;
+		}
+
+		.method private getPublicKeyExp(Ljavacard/framework/APDU;)V {
+			.stack 3;
+			.locals 2;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	aload_1;
+					invokevirtual 30;		// javacard/framework/APDU.getBuffer()[B
+					astore_2;
+				L1:	aload_1;
+					invokevirtual 44;		// javacard/framework/APDU.setIncomingAndReceive()S
+					pop;
+					getfield_a_this 3;		// reference com/quan/datn/Main.rsaPubKey
+					aload_2;
+					sconst_0;
+					invokeinterface 3 21 4;		// javacard/security/RSAPublicKey
+					sstore_3;
+				L2:	aload_1;
+					sconst_0;
+					sload_3;
+					invokevirtual 48;		// javacard/framework/APDU.setOutgoingAndSend(SS)V
+					return;
+		}
+
+		.method private getPublicKeyMod(Ljavacard/framework/APDU;)V {
+			.stack 3;
+			.locals 2;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	aload_1;
+					invokevirtual 30;		// javacard/framework/APDU.getBuffer()[B
+					astore_2;
+				L1:	aload_1;
+					invokevirtual 44;		// javacard/framework/APDU.setIncomingAndReceive()S
+					pop;
+					getfield_a_this 3;		// reference com/quan/datn/Main.rsaPubKey
+					aload_2;
+					sconst_0;
+					invokeinterface 3 21 5;		// javacard/security/RSAPublicKey
+					sstore_3;
+				L2:	aload_1;
+					sconst_0;
+					sload_3;
+					invokevirtual 48;		// javacard/framework/APDU.setOutgoingAndSend(SS)V
+					return;
+		}
+
+		.method public deselect()V 4 {
+			.stack 1;
+			.locals 0;
+
+				L0:	getfield_a_this 0;		// reference com/quan/datn/Main.pin
+					invokevirtual 57;		// javacard/framework/OwnerPIN.reset()V
+					return;
+		}
+
+		.method private encryptPrivateKey(Ljavacard/security/RSAPrivateKey;[B)V {
+			.stack 6;
+			.locals 4;
+
+			.descriptor	Ljavacard/security/RSAPrivateKey;	1.8;
+
+				L0:	aload_0;
+					aload_2;
+					invokespecial 58;		// com/quan/datn/Main.generatorKey([B)[B
+					astore_3;
+				L1:	getfield_a_this 4;		// reference com/quan/datn/Main.aesKey
+					aload_3;
+					sconst_0;
+					invokeinterface 3 24 4;		// javacard/security/AESKey
+					getfield_a_this 5;		// reference com/quan/datn/Main.aesCipher
+					getfield_a_this 4;		// reference com/quan/datn/Main.aesKey
+					sconst_2;
+					invokevirtual 59;		// javacardx/crypto/Cipher.init(Ljavacard/security/Key;B)V
+					sspush 1024;
+					newarray 11;
+					astore 4;
+				L2:	aload_1;
+					aload 4;
+					sconst_0;
+					invokeinterface 3 19 5;		// javacard/security/RSAPrivateKey
+					sstore 5;
+				L3:	sload 5;
+					newarray 11;
+					putstatic_a 60;		// reference com/quan/datn/Main.privateKeyModule
+					getfield_a_this 5;		// reference com/quan/datn/Main.aesCipher
+					aload 4;
+					sconst_0;
+					sload 5;
+					getstatic_a 60;		// reference com/quan/datn/Main.privateKeyModule
+					sconst_0;
+					invokevirtual 61;		// javacardx/crypto/Cipher.doFinal([BSS[BS)S
+					pop;
+					aload_1;
+					aload 4;
+					sconst_0;
+					invokeinterface 3 19 4;		// javacard/security/RSAPrivateKey
+					sstore 6;
+				L4:	sload 6;
+					newarray 11;
+					putstatic_a 62;		// reference com/quan/datn/Main.privateKeyExp
+					getfield_a_this 5;		// reference com/quan/datn/Main.aesCipher
+					aload 4;
+					sconst_0;
+					sload 6;
+					getstatic_a 62;		// reference com/quan/datn/Main.privateKeyExp
+					sconst_0;
+					invokevirtual 61;		// javacardx/crypto/Cipher.doFinal([BSS[BS)S
+					pop;
+					getfield_a_this 4;		// reference com/quan/datn/Main.aesKey
+					invokeinterface 1 24 0;		// javacard/security/AESKey
+					return;
+		}
+
+		.method private decryptPrivateKey([B)Ljavacard/security/RSAPrivateKey; {
+			.stack 6;
+			.locals 4;
+
+			.descriptor	Ljavacard/security/RSAPrivateKey;	1.8;
+
+				L0:	aload_0;
+					aload_1;
+					invokespecial 58;		// com/quan/datn/Main.generatorKey([B)[B
+					astore_2;
+				L1:	getfield_a_this 4;		// reference com/quan/datn/Main.aesKey
+					aload_2;
+					sconst_0;
+					invokeinterface 3 24 4;		// javacard/security/AESKey
+					getstatic_a 60;		// reference com/quan/datn/Main.privateKeyModule
+					arraylength;
+					newarray 11;
+					astore_3;
+				L2:	getstatic_a 62;		// reference com/quan/datn/Main.privateKeyExp
+					arraylength;
+					newarray 11;
+					astore 4;
+				L3:	getfield_a_this 5;		// reference com/quan/datn/Main.aesCipher
+					getfield_a_this 4;		// reference com/quan/datn/Main.aesKey
+					sconst_1;
+					invokevirtual 59;		// javacardx/crypto/Cipher.init(Ljavacard/security/Key;B)V
+					getfield_a_this 5;		// reference com/quan/datn/Main.aesCipher
+					getstatic_a 60;		// reference com/quan/datn/Main.privateKeyModule
+					sconst_0;
+					getstatic_a 60;		// reference com/quan/datn/Main.privateKeyModule
+					arraylength;
+					aload_3;
+					sconst_0;
+					invokevirtual 61;		// javacardx/crypto/Cipher.doFinal([BSS[BS)S
+					pop;
+					getfield_a_this 5;		// reference com/quan/datn/Main.aesCipher
+					getstatic_a 62;		// reference com/quan/datn/Main.privateKeyExp
+					sconst_0;
+					getstatic_a 62;		// reference com/quan/datn/Main.privateKeyExp
+					arraylength;
+					aload 4;
+					sconst_0;
+					invokevirtual 61;		// javacardx/crypto/Cipher.doFinal([BSS[BS)S
+					pop;
+					sconst_5;
+					bspush 8;
+					getfield_s_this 1;		// short com/quan/datn/Main.sigLen
+					smul;
+					sconst_0;
+					invokestatic 23;		// javacard/security/KeyBuilder.buildKey(BSZ)Ljavacard/security/Key;
+					checkcast 0 19;		// T_CLASSORINTERFACE javacard/security/RSAPrivateKey
+					astore 5;
+				L4:	aload 5;
+					aload_3;
+					sconst_0;
+					aload_3;
+					arraylength;
+					invokeinterface 4 19 7;		// javacard/security/RSAPrivateKey
+					aload 5;
+					aload 4;
+					sconst_0;
+					aload 4;
+					arraylength;
+					invokeinterface 4 19 6;		// javacard/security/RSAPrivateKey
+					getfield_a_this 4;		// reference com/quan/datn/Main.aesKey
+					invokeinterface 1 24 0;		// javacard/security/AESKey
+					aload 5;
+					areturn;
+		}
+
+		.method private generatorKey([B)[B {
+			.stack 4;
+			.locals 2;
+
+				L0:	sconst_0;
+					sstore_2;
+				L1:	bspush 16;
+					newarray 11;
+					astore_3;
+				L2:	sload_2;
+					bspush 16;
+					if_scmpge L4;
+				L3:	aload_3;
+					sload_2;
+					aload_1;
+					sconst_0;
+					baload;
+					bastore;
+					aload_3;
+					sload_2;
+					sconst_1;
+					sadd;
+					aload_1;
+					sconst_1;
+					baload;
+					bastore;
+					aload_3;
+					sload_2;
+					sconst_2;
+					sadd;
+					aload_1;
+					sconst_2;
+					baload;
+					bastore;
+					aload_3;
+					sload_2;
+					sconst_3;
+					sadd;
+					aload_1;
+					sconst_3;
+					baload;
+					bastore;
+					sinc 2 4;
+					goto L2;
+				L4:	aload_3;
+					areturn;
+		}
+
+	}
+
+}
